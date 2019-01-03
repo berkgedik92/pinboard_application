@@ -1,0 +1,206 @@
+	body, html {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+	}
+
+	#saveButton {
+		display: inline-block;
+		position: absolute;
+		padding: 5px 15px 5px 15px;
+	    width: 6%;
+	    text-align: center;
+	    height: 30%;
+	    top: 35%;
+		background: #3498db;
+		background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+		background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+		background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+		background-image: -o-linear-gradient(top, #3498db, #2980b9);
+		background-image: linear-gradient(to bottom, #3498db, #2980b9);
+		-webkit-border-radius: 28px;
+		-moz-border-radius: 28px;
+		border-radius: 28px;
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 20px;
+		text-decoration: none;
+	}
+
+	#saveButton:hover {
+		background: #3cb0fd;
+		background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+		background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+		background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+		background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+		background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+		text-decoration: none;
+	}
+
+	#editarea {
+		display: inline-block;
+		width:100%; 
+		height:90%;
+		position: relative;
+		border: 1px dashed blue;
+		box-sizing: border-box;
+	}
+
+	#filearea {
+		display: inline-block;
+		width:100%; 
+		height:10%; 
+		position: relative;
+		background: #F5F5F5;
+	}
+
+	#board {
+		display: inline-block;
+		width: 5000px;
+		height: 5000px;
+		margin: 0px;
+		padding: 0px;
+		background-image: url(tile.jpg);
+		background-repeat: repeat;
+	}
+
+	.postit {
+		display: inline-block;
+  		position: absolute;
+	}	
+
+	.note {
+		display: block;
+		position: relative;
+		word-wrap: break-word;
+    	overflow: hidden;
+		
+		/*Layout*/
+		width: 250px;
+		height: 250px;
+		/*padding-top: 20px;*/
+
+		/*Font*/
+  		font-size: 15px;
+		color: #333;
+
+  		/*Golge*/
+  		box-shadow: 0 10px 10px 2px rgba(0,0,0,0.5);
+
+  		/*Post-it sari olsun*/
+	    background: #eae672;
+
+	    /*Post-itin kenarlari yuvarlak olsun*/
+	    border: 10px solid #eae672;
+	    border-radius: 15px;
+
+	    /*Rotation*/
+		-webkit-transform: rotate(3deg);
+		-moz-transform: rotate(3deg);
+		-o-transform: rotate(3deg);
+		-ms-transform: rotate(3deg);
+		transform: rotate(3deg);
+	}
+
+	.owner {
+		margin-bottom: 5px;
+		border-bottom: 1px dashed green;
+		padding-bottom: 5px;
+	}
+
+	.detail {
+		display: inline-block;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 15px;
+		line-height: 15px;
+		font-size: 15px;
+		color:red;
+		text-align: center;
+	}
+
+	.closer {
+		display: inline-block;
+		visibility: hidden;
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		right: 0;
+		top: 0;
+		background: red;
+		color:white;
+		line-height: 14px;
+		font-size: 10px;
+		padding: 2px;
+		text-align:center
+	}
+
+	.ownerdate {
+		position: absolute;
+		right: 0px;
+		line-height: 40px;
+		font-size: 13px;
+		font-weight: bold;
+		vertical-align: top;
+	}
+
+	.ui-draggable-dragging.postit .note {
+		top:-10px;
+		box-shadow: 0 20px 10px 2px rgba(0,0,0,0.5);
+	}
+
+	.ui-draggable-dragging.postit .pin {
+		top: -10px;
+	}
+
+	.pin {
+		background-color: #aaa;
+		display: block;
+		height: 20px;
+		width: 2px;
+		position: absolute;
+		left: 53%;
+		top: -5%;
+		z-index: 1;
+	}
+
+	.pin:after {
+		background-color: #A31;
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 1px hsla(0,0%,0%,.1),
+		            inset 3px 3px 3px hsla(0,0%,100%,.2),
+		            inset -3px -3px 3px hsla(0,0%,0%,.2),
+		            23px 8px 3px hsla(0,0%,0%,.15);
+
+		content: '';
+		height: 12px;
+		left: -5px;
+		position: absolute;
+		top: -10px;
+		width: 12px;
+	}
+
+	.pin:before {
+		background-color: hsla(0,0%,0%,0.1);
+		box-shadow: 0 0 .25em hsla(0,0%,0%,.1);
+		content: '';
+		height: 24px;
+		width: 2px;
+		left: 0;
+		position: absolute;
+		top: -3px;
+		transform: rotate(57.5deg);
+		-moz-transform: rotate(57.5deg);
+		-webkit-transform: rotate(57.5deg);
+		-o-transform: rotate(57.5deg);
+		-ms-transform: rotate(57.5deg);
+		transform-origin: 50% 100%;
+		-moz-transform-origin: 50% 100%;
+		-webkit-transform-origin: 50% 100%;
+		-ms-transform-origin: 50% 100%;
+		-o-transform-origin: 50% 100%;
+	}

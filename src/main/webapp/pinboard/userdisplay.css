@@ -1,0 +1,19 @@
+.ownericon {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    vertical-align: top;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+}
+
+.ownername {
+    color:red;
+    font-weight: bold;
+    line-height: 40px;
+    font-size: 20px;
+    vertical-align: top;
+}
