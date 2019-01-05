@@ -5,6 +5,7 @@
 /.idea
 /dbfiles/*
 **/.DS_Store
+maven_settings.xml
 
 # Log file
 *.log
