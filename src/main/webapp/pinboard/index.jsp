@@ -71,7 +71,7 @@ editarea.dblclick(function(e) {
 		return;
 	
 	var newText = {
-    	"text" : "yeni yazı",
+    	"text" : "enter a new text",
     	"left" : e.offsetX,
     	"top" : e.offsetY,
     	"width" : 100,
@@ -153,8 +153,8 @@ function AddFile(data) {
 
 	fileDiv.append(link);
 
-	var readonly = GetScope().readonly; //editleyebiliyor muyuz?
-	var editmode = GetScope().editmode;	//True ise edit false ise read
+	var readonly = GetScope().readonly;
+	var editmode = GetScope().editmode;
 
 	link.attr("download", data.name);
 
@@ -201,7 +201,6 @@ function AddText(data) {
 	if (!readonly) {
 		inner.prop("disabled", false);
 
-		//Yaziya dblclick yapinca yeni text node yaratmasin diye
 		textDiv.dblclick(function(e) {
 			return false;
 		});
@@ -458,7 +457,6 @@ app.directive('postit', function() {
 					});
 
 					paper.animate({"top": (height + 10) + "px"}, 1000, function() {
-						//scope'u guncelle
 						mainScope.removeById(id);
 						mainScope.$apply();
 					});

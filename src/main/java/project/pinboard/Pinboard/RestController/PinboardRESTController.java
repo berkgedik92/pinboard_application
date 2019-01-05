@@ -14,7 +14,6 @@ import project.pinboard.Pinboard.Websocket.PinboardWSService;
 import project.pinboard.Services.DateManager;
 import project.pinboard.Services.FileOperations;
 import project.pinboard.Wrappers.MPRWrapper;
-import javafx.util.Pair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -218,7 +217,7 @@ public class PinboardRESTController {
         postit.setPinboardID(pinboardID);
         postit = postitRepository.save(postit);
 
-        List<Pair<String, String>> files = new ArrayList<>();
+        List<String[]> files = new ArrayList<>();
 
         int oldPicAmount = 0;
         int oldFileAmount = 0;
@@ -227,14 +226,14 @@ public class PinboardRESTController {
             String index = Integer.toString(i + oldPicAmount);
             String sourceName = "pic_" + index;
             String targetName = postit.getId() + "_pic_" + index;
-            files.add(new Pair<>(sourceName, targetName));
+            files.add(new String[] {sourceName, targetName});
         }
 
         for (int i = 0; i < fileAmount; i++) {
             String index = Integer.toString(i + oldFileAmount);
             String sourceName = "file_" + index;
             String targetName = postit.getId() + "_file_" + index;
-            files.add(new Pair<>(sourceName, targetName));
+            files.add(new String[] {sourceName, targetName});
         }
 
         try {
@@ -278,7 +277,7 @@ public class PinboardRESTController {
             return new ResponseEntity<>("Cannot parse the data", HttpStatus.BAD_REQUEST);
         }
 
-        List<Pair<String, String>> files = new ArrayList<>();
+        List<String[]> files = new ArrayList<>();
         int oldPicAmount = postit.getPictures().size();
         int oldFileAmount = postit.getFiles().size();
 
@@ -286,14 +285,14 @@ public class PinboardRESTController {
             String index = Integer.toString(i + oldPicAmount);
             String sourceName = "pic_" + index;
             String targetName = postit.getId() + "_pic_" + index;
-            files.add(new Pair<>(sourceName, targetName));
+            files.add(new String[] {sourceName, targetName});
         }
 
         for (int i = 0; i < fileAmount; i++) {
             String index = Integer.toString(i + oldFileAmount);
             String sourceName = "file_" + index;
             String targetName = postit.getId() + "_file_" + index;
-            files.add(new Pair<>(sourceName, targetName));
+            files.add(new String[] {sourceName, targetName});
         }
 
         postit.setPictures(edit.getPictures());

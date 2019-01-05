@@ -2,7 +2,6 @@ package project.pinboard.Wrappers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import project.pinboard.Services.FileOperations;
-import javafx.util.Pair;
 import org.json.JSONObject;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import java.io.IOException;
@@ -44,13 +43,15 @@ public class MPRWrapper {
         }
     }
 
-    /*Pairin ilk elemani MultipartHttpServletRequest'teki ad, ikincisi kaydederken
-    kullanilmak istenen ad*/
-    public void saveFiles(String folderName, List<Pair<String, String>> fileNames) throws Exception {
+    /*
+        fileNames[0] = name in MultipartHttpServletRequest object,
+        fileNames[1] = name to be used for saving the file
+    */
+    public void saveFiles(String folderName, List<String[]> fileNames) throws Exception {
 
-        for (Pair<String, String> current : fileNames) {
-            String sourceName = current.getKey();
-            String targetName = current.getValue();
+        for (String[] current : fileNames) {
+            String sourceName = current[0];
+            String targetName = current[1];
             byte[] data = Objects.requireNonNull(request.getFile(sourceName)).getBytes();
             fileOperations.saveBinaryFile(data, targetName, folderName);
         }

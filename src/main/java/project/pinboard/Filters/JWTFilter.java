@@ -51,7 +51,7 @@ public class JWTFilter implements Filter {
                 AdminUser user = tokenManager.check(authHeader);
 
                 // Check if this user has the right to access to the service that (s)he requested
-                if (!user.hasAccessRight(requestedURI))
+                if (!user.hasAccessRight(requestURIParts[0]))
                     throw new ServletException("The user does not have right to access this resource");
 
                 request.setAttribute("userdata", user);

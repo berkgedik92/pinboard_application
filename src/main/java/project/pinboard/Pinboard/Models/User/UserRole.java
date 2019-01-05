@@ -21,17 +21,6 @@ public class UserRole {
     }
 
     public boolean hasAccessRight(String URL) {
-        URL = URL.substring(1);
-        String[] urlParts = URL.split("/");
-        StringBuilder builder = new StringBuilder();
-
-        for (String urlPart : urlParts) {
-            builder.append(urlPart);
-            String current = builder.toString();
-            if (rights.contains(current))
-                return true;
-            builder.append("/");
-        }
-        return false;
+        return rights.contains(URL);
     }
 }
